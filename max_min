@@ -1,0 +1,53 @@
+import numpy as np
+#Find the Maximum and Minimum
+def main():
+    #Empty array, store the varibles into this array
+    arr = []
+    #print out message
+    print("Welcome to finding the max and min in your array")
+    #while this is true, play a loop until the loops breaks(number not entered)
+    while True:
+        #i put try to catch any errors what might happen, in this case if no number was entered by the user
+        try:
+            #ask the user for how many numbers in the array
+            ask_user = int(input("How many numbers in the array: "))
+            #if the number they enetred is more than or equal to 0, print "Higher number"
+            if ask_user <= 0:
+                #If number is lower or equal to 0, print higher number
+                print("Higher number please")
+            #else if they don't put number
+            else:
+                #break out of loop, once error message is printed start again back to loop
+                break
+        #if a number is not used, use ValueError to catch it
+        except ValueError:
+            #print not a number
+            print("Not a number")
+
+    #for loop, the i is the range based on the user input from the ask_user in the while loop
+    for i in range(ask_user):
+        #while loop to hold the commands for what to do
+        while True:
+            #try except to catch any errors
+            try:
+                #ask user what numbers to put in the array
+                what_numbers = int(input("What numbers to put in the array: "))
+                #add the numbers from what_numbers into the empty array using append
+                arr.append(what_numbers)
+                #break out of loop
+                break
+            #if there is no number, print ValueError
+            except ValueError:
+                #print not a number if there is no number
+                print("Not a number")
+    #store the array (arr) into max_arr, use max, using np, to find the highest number in the array (arr)
+    max_arr = max(arr)
+    #store the array (arr) into min_arr, use min, using np, to find the lowest number in the array (arr)
+    min_arr = min(arr)
+
+    #print message and the max_arr (stores and has the highest number), and min_arr(stores and has the lowest number)
+    print(f"Here is the max number, {max_arr}")
+    print(f"Here is the min number, {min_arr}")
+
+if __name__ == "__main__":
+    main()
